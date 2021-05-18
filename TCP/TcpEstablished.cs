@@ -9,5 +9,12 @@ namespace Ploeh.Samples.TCP
         private TcpEstablished()
         {
         }
+
+        public override void Close(TcpConnection connection)
+        {
+            // send FIN, receive ACK of FIN
+
+            connection.State = TcpListen.Instance;
+        }
     }
 }
