@@ -46,5 +46,16 @@ namespace Ploeh.Samples.TCP.UnitTests
 
             Assert.Contains(expected, spy);
         }
+
+        [Fact]
+        public void ListenSend()
+        {
+            var sut = new TcpConnection();
+            sut.PassiveOpen();
+
+            sut.Send();
+
+            Assert.Equal(TcpEstablished.Instance, sut.State);
+        }
     }
 }

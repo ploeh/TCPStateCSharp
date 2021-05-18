@@ -9,5 +9,12 @@ namespace Ploeh.Samples.TCP
         private TcpListen()
         {
         }
+
+        public override void Send(TcpConnection connection)
+        {
+            // Send SYN, receive SYN, ACK, etc.
+
+            connection.State = TcpEstablished.Instance;
+        }
     }
 }
