@@ -8,32 +8,39 @@ namespace Ploeh.Samples.TCP
 {
     public class TcpState
     {
-        public virtual void Transmit(TcpConnection connection, TcpOctetStream stream)
+        public virtual TcpState Transmit(TcpConnection connection, TcpOctetStream stream)
         {
+            return this;
         }
 
-        public virtual void ActiveOpen(TcpConnection connection)
+        public virtual TcpState ActiveOpen(TcpConnection connection)
         {
+            return this;
         }
 
-        public virtual void PassiveOpen(TcpConnection connection)
+        public virtual TcpState PassiveOpen(TcpConnection connection)
         {
+            return this;
         }
 
-        public virtual void Close(TcpConnection connection)
+        public virtual TcpState Close(TcpConnection connection)
         {
+            return this;
         }
 
-        public virtual void Synchronize(TcpConnection connection)
+        public virtual TcpState Synchronize(TcpConnection connection)
         {
+            return this;
         }
 
-        public virtual void Acknowledge(TcpConnection connection)
+        public virtual TcpState Acknowledge(TcpConnection connection)
         {
+            return this;
         }
 
-        public virtual void Send(TcpConnection connection)
+        public virtual TcpState Send(TcpConnection connection)
         {
+            return this;
         }
     }
 }

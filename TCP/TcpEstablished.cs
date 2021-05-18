@@ -10,18 +10,20 @@ namespace Ploeh.Samples.TCP
         {
         }
 
-        public override void Close(TcpConnection connection)
+        public override TcpState Close(TcpConnection connection)
         {
             // send FIN, receive ACK of FIN
 
             connection.State = TcpListen.Instance;
+            return connection.State;
         }
 
-        public override void Transmit(
+        public override TcpState Transmit(
             TcpConnection connection,
             TcpOctetStream stream)
         {
             connection.ProcessOctet(stream);
+            return connection.State;
         }
     }
 }

@@ -10,11 +10,12 @@ namespace Ploeh.Samples.TCP
         {
         }
 
-        public override void Send(TcpConnection connection)
+        public override TcpState Send(TcpConnection connection)
         {
             // Send SYN, receive SYN, ACK, etc.
 
             connection.State = TcpEstablished.Instance;
+            return connection.State;
         }
     }
 }
