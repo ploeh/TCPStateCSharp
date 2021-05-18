@@ -13,27 +13,24 @@ namespace Ploeh.Samples.TCP.UnitTests
         public void ClosedActiveOpen()
         {
             var sut = new TcpConnection();
-            sut.ActiveOpen();
-            Assert.Equal(TcpEstablished.Instance, sut.State);
+            var actual = sut.ActiveOpen();
+            Assert.Equal(TcpEstablished.Instance, actual.State);
         }
 
         [Fact]
         public void ClosedPassiveOpen()
         {
             var sut = new TcpConnection();
-            sut.PassiveOpen();
-            Assert.Equal(TcpListen.Instance, sut.State);
+            var actual = sut.PassiveOpen();
+            Assert.Equal(TcpListen.Instance, actual.State);
         }
 
         [Fact]
         public void EstablishedClose()
         {
             var sut = new TcpConnection();
-            sut.ActiveOpen();
-
-            sut.Close();
-
-            Assert.Equal(TcpListen.Instance, sut.State);
+            var actual = sut.ActiveOpen().Close();
+            Assert.Equal(TcpListen.Instance, actual.State);
         }
 
         [Fact]
@@ -51,11 +48,8 @@ namespace Ploeh.Samples.TCP.UnitTests
         public void ListenSend()
         {
             var sut = new TcpConnection();
-            sut.PassiveOpen();
-
-            sut.Send();
-
-            Assert.Equal(TcpEstablished.Instance, sut.State);
+            var actual = sut.PassiveOpen().Send();
+            Assert.Equal(TcpEstablished.Instance, actual.State);
         }
     }
 }

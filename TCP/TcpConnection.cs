@@ -8,7 +8,7 @@ namespace Ploeh.Samples.TCP
 {
     public class TcpConnection
     {
-        public TcpState State { get; internal set; }
+        public TcpState State { get; }
 
         public TcpConnection()
         {

@@ -12,14 +12,12 @@
         {
             // Send SYN, receive SYN, Ack, etc.
 
-            connection.State = TcpEstablished.Instance;
-            return connection.State;
+            return TcpEstablished.Instance;
         }
 
         public override TcpState PassiveOpen(TcpConnection connection)
         {
-            connection.State = TcpListen.Instance;
-            return connection.State;
+            return TcpListen.Instance;
         }
     }
 }

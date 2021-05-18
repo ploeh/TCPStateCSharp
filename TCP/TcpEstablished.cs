@@ -14,8 +14,7 @@ namespace Ploeh.Samples.TCP
         {
             // send FIN, receive ACK of FIN
 
-            connection.State = TcpListen.Instance;
-            return connection.State;
+            return TcpListen.Instance;
         }
 
         public override TcpState Transmit(

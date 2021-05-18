@@ -14,8 +14,7 @@ namespace Ploeh.Samples.TCP
         {
             // Send SYN, receive SYN, ACK, etc.
 
-            connection.State = TcpEstablished.Instance;
-            return connection.State;
+            return TcpEstablished.Instance;
         }
     }
 }
