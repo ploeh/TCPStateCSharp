@@ -14,5 +14,10 @@
 
             connection.State = TcpEstablished.Instance;
         }
+
+        public override void PassiveOpen(TcpConnection connection)
+        {
+            connection.State = TcpListen.Instance;
+        }
     }
 }

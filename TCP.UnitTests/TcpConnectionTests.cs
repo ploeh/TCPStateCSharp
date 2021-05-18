@@ -16,5 +16,13 @@ namespace Ploeh.Samples.TCP.UnitTests
             sut.ActiveOpen();
             Assert.Equal(TcpEstablished.Instance, sut.State);
         }
+
+        [Fact]
+        public void ClosedPassiveOpen()
+        {
+            var sut = new TcpConnection();
+            sut.PassiveOpen();
+            Assert.Equal(TcpListen.Instance, sut.State);
+        }
     }
 }
