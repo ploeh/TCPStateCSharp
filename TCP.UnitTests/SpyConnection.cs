@@ -12,6 +12,11 @@ namespace Ploeh.Samples.TCP.UnitTests
             observations = new List<TcpOctetStream>();
         }
 
+        private SpyConnection(IReadOnlyCollection<TcpOctetStream> observations)
+        {
+
+        }
+
         public int Count => observations.Count;
 
         public IEnumerator<TcpOctetStream> GetEnumerator()
@@ -19,9 +24,10 @@ namespace Ploeh.Samples.TCP.UnitTests
             return observations.GetEnumerator();
         }
 
-        public override void ProcessOctet(TcpOctetStream stream)
+        public override TcpConnection ProcessOctet(TcpOctetStream stream)
         {
             observations.Add(stream);
+            return this;
         }
 
         IEnumerator IEnumerable.GetEnumerator()

@@ -42,7 +42,7 @@ namespace Ploeh.Samples.TCP.UnitTests
             var spy = new SpyConnection();
             var expected = new TcpOctetStream();
 
-            TcpEstablished.Instance.Transmit(spy, expected);
+            var actual = TcpEstablished.Instance.Transmit(spy, expected);
 
             Assert.Contains(expected, spy);
         }

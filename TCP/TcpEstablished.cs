@@ -22,8 +22,8 @@ namespace Ploeh.Samples.TCP
             TcpConnection connection,
             TcpOctetStream stream)
         {
-            connection.ProcessOctet(stream);
-            return connection.State;
+            TcpConnection newConnection = connection.ProcessOctet(stream);
+            return newConnection.State;
         }
     }
 }

@@ -15,38 +15,45 @@ namespace Ploeh.Samples.TCP
             State = TcpClosed.Instance;
         }
 
-        public void ActiveOpen()
+        public TcpConnection ActiveOpen()
         {
             State.ActiveOpen(this);
+            return this;
         }
 
-        public void PassiveOpen()
+        public TcpConnection PassiveOpen()
         {
             State.PassiveOpen(this);
+            return this;
         }
 
-        public void Close()
+        public TcpConnection Close()
         {
             State.Close(this);
+            return this;
         }
 
-        public void Send()
+        public TcpConnection Send()
         {
             State.Send(this);
+            return this;
         }
 
-        public void Acknowledge()
+        public TcpConnection Acknowledge()
         {
             State.Acknowledge(this);
+            return this;
         }
 
-        public void Synchronize()
+        public TcpConnection Synchronize()
         {
             State.Synchronize(this);
+            return this;
         }
 
-        public virtual void ProcessOctet(TcpOctetStream stream)
+        public virtual TcpConnection ProcessOctet(TcpOctetStream stream)
         {
+            return this;
         }
     }
 }
