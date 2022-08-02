@@ -16,5 +16,12 @@ namespace Ploeh.Samples.TCP
 
             connection.State = TcpListen.Instance;
         }
+
+        public override void Transmit(
+            TcpConnection connection,
+            TcpOctetStream stream)
+        {
+            connection.ProcessOctet(stream);
+        }
     }
 }

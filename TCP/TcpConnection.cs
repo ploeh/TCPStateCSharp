@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ploeh.Samples.TCP
 {
-    public sealed class TcpConnection
+    public class TcpConnection
     {
         public TcpState State { get; internal set; }
 
@@ -45,7 +45,7 @@ namespace Ploeh.Samples.TCP
             State.Synchronize(this);
         }
 
-        public void ProcessOctet(TcpOctetStream stream)
+        public virtual void ProcessOctet(TcpOctetStream stream)
         {
         }
     }

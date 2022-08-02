@@ -35,5 +35,16 @@ namespace Ploeh.Samples.TCP.UnitTests
 
             Assert.Equal(TcpListen.Instance, sut.State);
         }
+
+        [Fact]
+        public void EstablishedTransmit()
+        {
+            var spy = new SpyConnection();
+            var expected = new TcpOctetStream();
+
+            TcpEstablished.Instance.Transmit(spy, expected);
+
+            Assert.Contains(expected, spy);
+        }
     }
 }
